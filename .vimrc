@@ -26,6 +26,7 @@ Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/solarized'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'Valloric/YouCompleteMe'
 
 "set rnu
 
@@ -34,11 +35,11 @@ Bundle 'flazz/vim-colorschemes'
 filetype plugin indent on
 
 " The rest of your config follows here
-"se t_Co=256
-"let g:solarized_termcolors=256
-"syntax enable
-"set background=light
-"colorscheme solarized
+se t_Co=256
+let g:solarized_termcolors=256
+syntax enable
+set background=light
+colorscheme solarized
 
 " Powerline setup
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
@@ -53,7 +54,7 @@ set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
 set shiftround    " round indent to multiple of 'shiftwidth'
 set autoindent    " align the new line indent with the previous line
 set showcmd	  " show last command entered in the bottom bar
-"set cursorline	  " highlist current line
+set cursorline	  " highlist current line
 set wildmenu	  " visual autocomplete
 set number
 "autocmd vimenter * NERDTree " sets nerd tree to start up on vim load
