@@ -12,7 +12,9 @@ esac
 
 alias rm="trash-put"
 alias cd2s="cd ~/Documents/School/UMN\ Sp2015"
-alias cd2exer="cd ~/Documents/Programming/exercism"
+alias cd2w="cd ~/Documents/Work/Exosite"
+alias tmux="tmux -2"
+
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
