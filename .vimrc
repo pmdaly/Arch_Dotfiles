@@ -40,7 +40,7 @@ filetype plugin indent on
 se t_Co=256
 let g:solarized_termcolors=256
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 " Powerline setup
