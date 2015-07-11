@@ -12,6 +12,7 @@ esac
 
 alias rm="trash-put"
 alias cd2s="cd ~/Documents/School/UMN\ Sp2015"
+alias cd2f="cd ~/Documents/School/UMN\ Fa2015"
 alias cd2w="cd ~/Documents/Work/Exosite"
 alias tmux="tmux -2"
 
