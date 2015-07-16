@@ -27,7 +27,7 @@ Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/solarized'
 Bundle 'flazz/vim-colorschemes'
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'ervandew/screen'
 
 "set rnu
@@ -80,7 +80,8 @@ let g:airline_exclude_preview = 1
 let g:airline#extensions#ctrlp#color_template = 'normal'
 "}}}
 "
-
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " ipyhont tmux integration {{{
 let g:ScreenImpl = "Tmux"
