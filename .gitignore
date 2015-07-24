@@ -4,4 +4,5 @@
 !.vimrc
 !.gitignore
 !README.md
-
+!.confg/bspwm/bspwmrc
+!.config/sxhkd/sxhkdrc:w
