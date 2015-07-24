@@ -2,7 +2,10 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+archey3
+
 export PATH=~/bin:$PATH
+export PATH="/home/pmd/miniconda3/bin:$PATH"
 
 # If not running interactively, don't do anything
 case $- in
@@ -10,7 +13,7 @@ case $- in
       *) return;;
 esac
 
-alias rm="trash-put"
+#alias rm="trash-put"
 alias cd2s="cd ~/Documents/School/UMN\ Sp2015"
 alias cd2f="cd ~/Documents/School/UMN\ Fa2015"
 alias cd2k="cd ~/Documents/School/Kaggle"
