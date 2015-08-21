@@ -6,6 +6,7 @@ archey3
 
 export PATH=~/bin:$PATH
 export PATH="/home/pmd/miniconda3/bin:$PATH"
+export EDITOR=vim
 
 # If not running interactively, don't do anything
 case $- in
@@ -14,6 +15,7 @@ case $- in
 esac
 
 #alias rm="trash-put"
+alias rstudio="rstudio-bin"
 alias cd2s="cd ~/Documents/School/UMN\ Sp2015"
 alias cd2f="cd ~/Documents/School/UMN\ Fa2015"
 alias cd2k="cd ~/Documents/School/Kaggle"
