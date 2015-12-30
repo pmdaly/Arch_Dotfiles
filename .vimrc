@@ -27,7 +27,7 @@ Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/solarized'
 Bundle 'flazz/vim-colorschemes'
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'ervandew/screen'
 
 "set rnu
@@ -65,6 +65,7 @@ set number
 "noremap <Down> <NOP>
 "noremap <Left> <NOP>
 "noremap <Right> <NOP>
+"let mapleader = "\<Space>"
 nnoremap <leader>ll :w<CR>:!latexmk -pdf %<CR>
 
 " airline {{{
