@@ -37,11 +37,11 @@ Bundle 'ervandew/screen'
 filetype plugin indent on
 
 " The rest of your config follows here
-se t_Co=256
+"se t_Co=256
 let g:solarized_termcolors=256
 syntax enable
-set background=dark
 colorscheme solarized
+set background=dark
 
 " Powerline setup
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
@@ -59,14 +59,19 @@ set showcmd	  " show last command entered in the bottom bar
 set cursorline	  " highlist current line
 set wildmenu	  " visual autocomplete
 set number
+set relativenumber
 "autocmd vimenter * NERDTree " sets nerd tree to start up on vim load
+hi CursorLine term=bold cterm=bold guibg=Grey40
 
 "noremap <Up> <NOP>
 "noremap <Down> <NOP>
 "noremap <Left> <NOP>
 "noremap <Right> <NOP>
-"let mapleader = "\<Space>"
+inoremap jj <Esc>
+let mapleader = " "
 nnoremap <leader>ll :w<CR>:!latexmk -pdf %<CR>
+
+autocmd BufWritePre *.py :%s/\s\+$//e
 
 " airline {{{
 let g:airline_powerline_fonts = 1
@@ -92,6 +97,7 @@ autocmd FileType python map <LocalLeader>p :ScreenShell! ipython<CR>
 " Close whichever shell is running.
 autocmd FileType python map <LocalLeader>q :ScreenQuit<CR>
 " Send current line to python and move to next line.
+autocmd FileType python map <LocalLeader>rp V:ScreenSend<CR>
 " Send visual selection to python and move to next line.
 autocmd FileType python map <LocalLeader>v :ScreenSend<CR>`>0j
 " Send a carriage return line to python.

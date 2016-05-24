@@ -16,8 +16,9 @@ esac
 
 #alias rm="trash-put"
 alias sudo="sudo "
+alias cat="ccat "
 alias rstudio="rstudio-bin"
-alias cd2s="cd ~/Documents/School/UMN\ Sp2015"
+alias cd2s="cd ~/Documents/School/UMN\ Sp2016"
 alias cd2S="cd ~/Documents/School"
 alias cd2f="cd ~/Documents/School/UMN\ Fa2015"
 alias cd2k="cd ~/Documents/School/Kaggle"
@@ -135,4 +136,4 @@ fi
 
 # Concatenate the directory name
 PROMPT_DIRTRIM=2
-
+. /usr/share/autojump/autojump.bash
