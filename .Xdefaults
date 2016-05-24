@@ -1,0 +1,49 @@
+urxvt*.dynamicColors: on
+urxvt*.urgentOnBell: true
+
+! cursor
+urxvt*.cursorBlink: false
+
+! letter spacing
+urxvt*.letterSpace: -1
+
+urxvt*.dynamicColors: on
+urxvt*.urgentOnBell: true
+
+! scrollbar
+urxvt*.scrollBar: false
+urxvt*.scrollBar_right: true
+urxvt*.scrollBar_floating: true
+urxvt*.scrollstyle: plain
+urxvt*.scrollColor:  #efefef
+urxvt*.throughColor: #ffffff
+urxvt*.thickness: 1
+
+! border
+urxvt*.borderless: true
+urxvt*.internalBorder: 5
+urxvt*.externalBorder: 0
+
+! font
+urxvt*.font: xft:Inconsolata:size=10:antialias=true
+urxvt*.boldFont: xft:Inconsolata:style=bold:size=10:antialias=true
+urxvt*.italicFont: xft:Inconsolata:style=italic:size=10:antialias=true
+urxvt*.boldItalicFont: xft:Iconsolata:style=boldItalic:size=10:antialias=true
+
+! perl extensions
+urxvt*.perl-ext: default,url-select,clipboard
+
+! url-select (part of urxvt-perls package)
+urxvt*.keysym.M-u: perl:url-select:select_next
+urxvt*.url-select.autocopy: true
+urxvt*.url-select.button: 2
+urxvt*.url-select.launcher: firefox
+urxvt*.url-select.underline: true
+
+! copy pasta stuff
+urxvt*.keysym.Shift-Control-V: perl:clipboard:paste
+urxvt*.keysym.Shift-Control-C: perl:clipboard:copy
+
+! disable the ctrl+shift thing
+urxvt*.iso14755: false
+urxvt*.iso14755_52: false
