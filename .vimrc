@@ -63,14 +63,15 @@ set relativenumber
 "autocmd vimenter * NERDTree " sets nerd tree to start up on vim load
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
-"noremap <Up> <NOP>
-"noremap <Down> <NOP>
-"noremap <Left> <NOP>
-"noremap <Right> <NOP>
+" set esc to jj and leader to space 
 inoremap jj <Esc>
-let mapleader = " "
+nnoremap ; :
+let maplocalleader = " "
+
+" compile latex
 nnoremap <leader>ll :w<CR>:!latexmk -pdf %<CR>
 
+" upon saving, delete trailing whitespace
 autocmd BufWritePre *.py :%s/\s\+$//e
 
 " airline {{{
@@ -89,7 +90,9 @@ let g:airline#extensions#ctrlp#color_template = 'normal'
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
 
-" ipyhont tmux integration {{{
+" Open a .py file, hit space + p to tmux a script with ipython
+" visually select a block of code and type space + v to send it to ipython
+" ipyhon tmux integration {{{
 let g:ScreenImpl = "Tmux"
 " Open an ipython3 shell.
 autocmd FileType python map <LocalLeader>p :ScreenShell! ipython<CR>
@@ -174,3 +177,40 @@ function! GetVisual()
         return join(lines, "\n")
 endfunction
 "}}}
+
+
+" Indent Python in the Google way.
+setlocal indentexpr=GetGooglePythonIndent(v:lnum)
+
+let s:maxoff = 50 " maximum number of lines to look backwards.
+
+function GetGooglePythonIndent(lnum)
+
+  " Indent inside parens.
+  " Align with the open paren unless it is at the end of the line.
+  " E.g.
+  "   open_paren_not_at_EOL(100,
+  "                         (200,
+  "                          300),
+  "                         400)
+  "   open_paren_at_EOL(
+  "       100, 200, 300, 400)
+  call cursor(a:lnum, 1)
+  let [par_line, par_col] = searchpairpos('(\|{\|\[', '', ')\|}\|\]', 'bW',
+        \ "line('.') < " . (a:lnum - s:maxoff) . " ? dummy :"
+        \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
+        \ . " =~ '\\(Comment\\|String\\)$'")
+  if par_line > 0
+    call cursor(par_line, 1)
+    if par_col != col("$") - 1
+      return par_col
+    endif
+  endif
+
+  " Delegate the rest to the original function.
+  return GetPythonIndent(a:lnum)
+
+endfunction
+
+let pyindent_nested_paren="&sw*2"
+let pyindent_open_paren="&sw*2"

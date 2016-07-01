@@ -1,6 +1,6 @@
 #! /bin/sh
 
-bspc monitor -d o o o o o o
+bspc monitor -d o o o o o
 
 desktop_config() {
 	bspc config $1 $2
