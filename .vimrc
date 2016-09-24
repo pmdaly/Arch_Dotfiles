@@ -10,6 +10,13 @@
 " :echo $HOME
 " :echo $VIM
 " :echo $VIMRUNTIME
+"
+"
+"
+" ctrl + z -> suspend vim
+" $ fg -> to return
+"
+"
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -37,11 +44,13 @@ Bundle 'ervandew/screen'
 filetype plugin indent on
 
 " The rest of your config follows here
-"se t_Co=256
-let g:solarized_termcolors=256
-syntax enable
-colorscheme solarized
+
+"colorscheme solarized
+"let g:solarized_termcolors=256
+colorscheme gruvbox
+let g:gruvbox_termcolors=256
 set background=dark
+"colorscheme Tomorrow-Night
 
 " Powerline setup
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
@@ -57,9 +66,10 @@ set shiftround    " round indent to multiple of 'shiftwidth'
 set autoindent    " align the new line indent with the previous line
 set showcmd	  " show last command entered in the bottom bar
 set cursorline	  " highlist current line
-set wildmenu	  " visual autocomplete
+"set wildmenu	  " visual autocomplete
 set number
 set relativenumber
+syntax enable
 "autocmd vimenter * NERDTree " sets nerd tree to start up on vim load
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
@@ -177,40 +187,3 @@ function! GetVisual()
         return join(lines, "\n")
 endfunction
 "}}}
-
-
-" Indent Python in the Google way.
-setlocal indentexpr=GetGooglePythonIndent(v:lnum)
-
-let s:maxoff = 50 " maximum number of lines to look backwards.
-
-function GetGooglePythonIndent(lnum)
-
-  " Indent inside parens.
-  " Align with the open paren unless it is at the end of the line.
-  " E.g.
-  "   open_paren_not_at_EOL(100,
-  "                         (200,
-  "                          300),
-  "                         400)
-  "   open_paren_at_EOL(
-  "       100, 200, 300, 400)
-  call cursor(a:lnum, 1)
-  let [par_line, par_col] = searchpairpos('(\|{\|\[', '', ')\|}\|\]', 'bW',
-        \ "line('.') < " . (a:lnum - s:maxoff) . " ? dummy :"
-        \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
-        \ . " =~ '\\(Comment\\|String\\)$'")
-  if par_line > 0
-    call cursor(par_line, 1)
-    if par_col != col("$") - 1
-      return par_col
-    endif
-  endif
-
-  " Delegate the rest to the original function.
-  return GetPythonIndent(a:lnum)
-
-endfunction
-
-let pyindent_nested_paren="&sw*2"
-let pyindent_open_paren="&sw*2"

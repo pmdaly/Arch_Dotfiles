@@ -6,6 +6,7 @@ archey3
 
 export PATH=~/bin:$PATH
 export PATH="/home/pmd/miniconda3/bin:$PATH"
+export PATH="/home/pmd/.gem/ruby/2.3.0/bin:$PATH"
 export EDITOR=vim
 
 # If not running interactively, don't do anything

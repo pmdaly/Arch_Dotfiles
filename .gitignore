@@ -1,5 +1,6 @@
 # ignore all except a few dotfiles
 *
+!cmdline.md
 !.inputrc
 !.bashrc
 !.vimrc
